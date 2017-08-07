@@ -3,8 +3,9 @@ gitweb:
   image: gitweb
   volumes:
     - ./repos:/repos
-    - ./nginx.conf:/etc/nginx/conf.d/default.conf
     - ./log/nginx:/var/log/nginx
+    - ./htpasswd:/htpasswd
     - ./gitweb.conf:/etc/gitweb.conf
+    - ./nginx.conf:/etc/nginx/nginx.conf
   ports:
     - 80:80
