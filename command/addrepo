@@ -1,0 +1,38 @@
+#!/bin/bash
+REPOS="/repos"
+
+error(){
+    echo "ERROR : parameters invalid !" >&2
+    exit 1
+}
+
+usage(){
+    echo "Usage: addrepo repo"
+    echo "--help or -h : view help"
+}
+
+load(){
+    REPO=$REPOS/$1.git
+    if [ ! -d $REPO ]; then
+        mkdir $REPO
+		    cd $REPO
+		    git init --bare
+		    #chmod -R 777 $REPO
+    fi
+}
+
+# no parameters
+[[ $# -ne 1 ]] && error
+
+case "$1" in
+    --help)
+        usage
+        ;;
+
+    -h)
+        usage
+        ;;
+
+    *)
+        load $1
+esac
