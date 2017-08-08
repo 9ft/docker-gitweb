@@ -2,17 +2,15 @@
 DIR="/repos"
 
 usage(){
-    echo "Usage: addrepo REPO"
+    echo "Usage: rmrepo REPO"
     exit 0
 }
 
-addrepo(){
-    REPO=$DIR/$1.git
-    if [ ! -d $REPO ]; then
-        mkdir $REPO
-		    cd $REPO
-		    git init --bare
-        echo "$1.git added"
+rmrepo(){
+  	REPO=$DIR/$1.git
+  	if [ -d $REPO ]; then
+        rm -R $REPO
+        echo "$1.git removed"
     fi
 }
 
@@ -27,5 +25,5 @@ case "$1" in
         usage
         ;;
     *)
-        addrepo $1
+        rmrepo $1
 esac

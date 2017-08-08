@@ -9,7 +9,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY ./command/addrepo /usr/bin/addrepo
-RUN chmod +x /usr/bin/addrepo
+COPY ./command/rmrepo /usr/bin/rmrepo
+RUN chmod +x /usr/bin/addrepo && \
+    chmod +x /usr/bin/rmrepo
 
 ADD ./entrypoint /entrypoint
 RUN chmod +x /entrypoint
