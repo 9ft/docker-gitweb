@@ -18,6 +18,8 @@ RUN chmod +x /usr/bin/addrepo && \
     chmod +x /usr/bin/addauth && \
     chmod +x /usr/bin/rmauth
 
+RUN cp /usr/share/gitweb/static/gitweb.js /gitweb.js
+
 ADD ./entrypoint /entrypoint
 RUN chmod +x /entrypoint
 ENTRYPOINT ["/entrypoint"]

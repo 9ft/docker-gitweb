@@ -1,0 +1,3 @@
+[submodule "theme/alternative"]
+	path = theme/alternative
+	url = https://github.com/kogakure/gitweb-theme.git
