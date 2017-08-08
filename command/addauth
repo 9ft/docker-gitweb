@@ -1,0 +1,30 @@
+#!/bin/bash
+PASS="/htpasswd"
+
+usage(){
+    echo "Usage: addauth user password"
+    exit 0
+}
+
+adduser(){
+    if [ ! -f $PASS ]; then
+        htpasswd -bc $PASS $1 $2
+    else
+        htpasswd -b $PASS $1 $2
+    fi
+}
+
+# no parameters
+[[ $# -lt 1 ]] && usage
+
+case "$1" in
+    --help)
+        usage
+        ;;
+    -h)
+        usage
+        ;;
+    *)
+        [[ $# -ne 2 ]] && usage
+        adduser $1 $2
+esac

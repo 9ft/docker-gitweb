@@ -10,8 +10,13 @@ RUN apt-get update && \
 
 COPY ./command/addrepo /usr/bin/addrepo
 COPY ./command/rmrepo /usr/bin/rmrepo
+COPY ./command/addauth /usr/bin/addauth
+COPY ./command/rmauth /usr/bin/rmauth
+
 RUN chmod +x /usr/bin/addrepo && \
-    chmod +x /usr/bin/rmrepo
+    chmod +x /usr/bin/rmrepo && \
+    chmod +x /usr/bin/addauth && \
+    chmod +x /usr/bin/rmauth
 
 ADD ./entrypoint /entrypoint
 RUN chmod +x /entrypoint

@@ -3,5 +3,3 @@ service fcgiwrap start
 #chgrp nginx /var/run/fcgiwrap.socket
 #chmod g+w /var/run/fcgiwrap.socket
 nginx -g 'daemon off;'
-sh -c "echo -n 'mindy:' >> /etc/nginx/passwd"
-sh -c "openssl passwd -apr1 1! >> /etc/nginx/passwd"

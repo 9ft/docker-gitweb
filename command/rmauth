@@ -1,0 +1,27 @@
+#!/bin/bash
+PASS="/htpasswd"
+
+usage(){
+    echo "Usage: rmauth user"
+    exit 0
+}
+
+rmauth(){
+    if [ -f $PASS ]; then
+        htpasswd -D $PASS $1
+    fi
+}
+
+# no parameters
+[[ $# -ne 1 ]] && usage
+
+case "$1" in
+    --help)
+        usage
+        ;;
+    -h)
+        usage
+        ;;
+    *)
+        rmauth $1
+esac
