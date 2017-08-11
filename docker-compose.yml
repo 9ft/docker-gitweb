@@ -5,10 +5,9 @@ gitweb:
     - ./log/nginx:/var/log/nginx
     - ./repos:/repos
     - ./htpasswd:/htpasswd
-    - ./gitweb.conf:/etc/gitweb.conf
-    - ./nginx.conf:/etc/nginx/nginx.conf
-    - ./indextext.html:/usr/share/gitweb/indextext.html
-    - ./theme/default:/usr/share/gitweb/static
-    #- ./theme/alternative:/usr/share/gitweb/static
+    - ./indextext.html:/indextext.html
   ports:
     - 80:80
+  environment:
+    - THEME=alternative    # default, alternative
+    - HOST=direct          # direct, router

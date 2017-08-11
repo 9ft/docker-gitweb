@@ -1,4 +1,27 @@
 #!/bin/bash
+if [ -z $THEME ]; then
+  echo "theme: default"
+elif [ $THEME = "default" ]; then
+  echo "theme: $THEME"
+elif [ $THEME = "alternative" ]; then
+  mv /usr/share/gitweb/static /usr/share/gitweb/static.bak
+  git clone https://github.com/kogakure/gitweb-theme.git /usr/share/gitweb/static
+  echo "theme: $THEME"
+else
+  echo "unknow theme, set to default"
+fi
+
+if [ -z $HOST ]; then
+  echo "host: direct"
+elif [ $HOST = "direct" ]; then
+  echo "host: $HOST"
+elif [ $HOST = "router" ]; then
+  mv -f /etc/nginx/nginx_router.conf /etc/nginx/nginx.conf
+  echo "host: $HOST"
+else
+  echo "unknow host mode, set to direct"
+fi
+
 service fcgiwrap start
 #chgrp nginx /var/run/fcgiwrap.socket
 #chmod g+w /var/run/fcgiwrap.socket
