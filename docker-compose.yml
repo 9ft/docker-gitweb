@@ -6,6 +6,8 @@ gitweb:
     - ./repos:/repos
     - ./htpasswd:/htpasswd
     - ./indextext.html:/indextext.html
+    - ./nginx.conf:/etc/nginx/nginx.conf
+    - ./gitweb.conf:/etc/gitweb.conf
   ports:
     - 80:80
   environment:

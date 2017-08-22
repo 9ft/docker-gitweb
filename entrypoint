@@ -11,17 +11,6 @@ else
   echo "unknow theme, set to default"
 fi
 
-if [ -z $HOST ]; then
-  echo "host: direct"
-elif [ $HOST = "direct" ]; then
-  echo "host: $HOST"
-elif [ $HOST = "router" ]; then
-  mv -f /etc/nginx/nginx_router.conf /etc/nginx/nginx.conf
-  echo "host: $HOST"
-else
-  echo "unknow host mode, set to direct"
-fi
-
 service fcgiwrap start
 #chgrp nginx /var/run/fcgiwrap.socket
 #chmod g+w /var/run/fcgiwrap.socket
