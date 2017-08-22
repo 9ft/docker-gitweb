@@ -20,10 +20,6 @@ RUN chmod +x /usr/bin/addrepo && \
 
 RUN cp /usr/share/gitweb/static/gitweb.js /gitweb.js
 
-ADD ./gitweb.conf /etc/gitweb.conf
-ADD ./nginx/nginx_direct.conf /etc/nginx/nginx.conf
-ADD ./nginx/nginx_router.conf /etc/nginx/nginx_router.conf
-
 ADD ./entrypoint /entrypoint
 RUN chmod +x /entrypoint
 ENTRYPOINT ["/entrypoint"]
